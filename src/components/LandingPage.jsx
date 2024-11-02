@@ -139,7 +139,7 @@ export default function LandingPage() {
             <FeatureCard 
               icon={<Camera className="h-12 w-12 text-[#00C853]" />}
               title="AI Body Previews"
-              description="Visualize your future self with our AI technology. See your potential muscle gain or weight loss at 30, 60, and 90 days."
+              description="Visualize your future self with our AI technology. Track your potential muscle gain or weight loss at least every 30 days, and set personalized milestones that align with your goals!"
             />
             <FeatureCard 
               icon={<BarChart2 className="h-12 w-12 text-[#00C853]" />}
@@ -149,7 +149,7 @@ export default function LandingPage() {
             <FeatureCard 
               icon={<CheckCircle className="h-12 w-12 text-[#00C853]" />}
               title="Personalized Goals"
-              description="Set and achieve your unique fitness goals, whether it's losing weight, building muscle, or improving overall health."
+              description="Set and achieve your unique fitness goals—whether it’s losing weight, building muscle, or boosting overall health—with a personalized workout routine tailored to your genetics, diet, and lifestyle factors."
             />
             <FeatureCard 
               icon={<Users className="h-12 w-12 text-[#00C853]" />}
