@@ -154,7 +154,7 @@ export default function LandingPage() {
             <FeatureCard 
               icon={<Users className="h-12 w-12 text-[#00C853]" />}
               title="Supportive Community"
-              description="Join challenges, share successes, and motivate each other. Transform together with like-minded individuals."
+              description="Join challenges, celebrate streaks, and show off your progress photos as part of the streak. Transform alongside friends and stay motivated with a community of like-minded individuals!"
             />
           </div>
         </div>
