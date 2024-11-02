@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.highlight-form {
+  border: 2px solid #7CB9E8; /* Adjust border color */
+  background-color: #f0f8ff; /* Light background color for highlighting */
+}
+
