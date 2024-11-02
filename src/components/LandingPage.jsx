@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Camera, BarChart2, Users, Instagram, Twitter, 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Logo from "@/assets/vector/default-monochrome.svg";
+import gymImage from '@/assets/images/gym1.jpg';
 import { Link } from 'react-scroll';
 
 export default function LandingPage() {
@@ -44,7 +45,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#1C1F4A] text-[#E0E0E0]">
       {/* Navigation */}
-      <nav className="bg-[#1C1F4A] fixed w-full z-50 shadow-md">
+      <nav className="bg-[#05071f] fixed w-full z-50 shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="flex items-center space-x-2 text-2xl font-bold text-[#7CB9E8] transition-transform duration-200 hover:scale-105">
             <img src={Logo} alt="Logo" className="w-[6rem] h-8" />
@@ -104,35 +105,37 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-32 text-center hero">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#7CB9E8]">See Your Future Self: AI-Powered Body Transformations</h1>
-        <p className="text-xl mb-8">Experience the future of fitness with AI-generated previews of your body transformation.</p>
-        {/* Whether you're building muscle or losing weight, visualize your success before you achieve it! */}
-        <p className="text-lg mb-6">Sign up for early access and start your journey to a healthier, fitter you.</p>
-        <form
-          onSubmit={handleSubmit}
-          className={`flex flex-col sm:flex-row justify-center items-center gap-4 p-4 rounded-lg transition-all duration-300 ease-out ${
-            highlightForm
-              ? 'border-2 border-[#7CB9E8] bg-[#1E2A4A] shadow-lg shadow-[#7CB9E8]/30 animate-pulse'
-              : 'border-2 border-transparent'
-          }`}
-        >
-          <Input 
-            type="email" 
-            placeholder="Enter your email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full sm:w-64 bg-[#2D305E] border-[#7CB9E8] focus:ring-[#7CB9E8] text-[#E0E0E0] placeholder-[#9DA3B4]"
-            required
-          />
-          <Button type="submit" className="w-full sm:w-auto bg-[#00C853] hover:bg-[#00A041] text-[#1C1F4A] font-bold transition-transform duration-200 hover:scale-105">
-            Join Waitlist
-          </Button>
-        </form>
+      <section className="relative h-screen flex items-center justify-center">
+      <div 
+        className="absolute inset-0 bg-cover bg-center" 
+        style={{ 
+          backgroundImage: `url(${gymImage})`,
+          backgroundPosition: 'center 0%' // Shifts the image down vertically
+        }}
+      ></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-purple-300">
+          See Your Future Self: AI-Powered Body Transformations
+        </h1>
+          <p className="text-lg mb-8">Visualize your fitness transformation with AI-generated previews.</p>
+          <Link
+                to="join-waitlist"
+                smooth={true}
+                duration={500}
+                className="block cursor-pointer "
+                onClick={handleStartTransformationClick}
+              >
+                <Button size="lg" className="bg-[#3a54c9] hover:bg-[#243ba5] text-gray-50 font-bold">
+                  Start Your Transformation
+                </Button>
+          </Link>
+          
+        </div>
       </section>
 
       {/* Key Features Section */}
-      <section id="features" className="bg-[#2D305E] py-20">
+      <section id="features" className="bg-[#161831] py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[#7CB9E8]">Revolutionize Your Fitness Journey</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -183,7 +186,7 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-[#2D305E]">
+      <section id="how-it-works" className="py-20 bg-[#161831]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[#7CB9E8]">Your Path to Transformation</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -205,7 +208,7 @@ export default function LandingPage() {
           </div>
           <div className="text-center mt-12">
           <Link
-                to="hero"
+                to="join-waitlist"
                 smooth={true}
                 duration={500}
                 className="block cursor-pointer "
@@ -262,11 +265,17 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#1C1F4A] to-[#2D305E] text-[#E0E0E0]">
+      <section className="py-20 bg-[#161831] text-[#E0E0E0] join-waitlist">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-[#7CB9E8]">Your Dream Body is Waiting to be Unveiled</h2>
           <p className="text-xl mb-8">Join now to be among the first to experience AI-powered body transformations.</p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row justify-center items-center gap-4
+          transition-all duration-300 ease-out ${
+            highlightForm
+              ? 'border-2 border-[#7CB9E8] bg-[#1E2A4A] shadow-lg shadow-[#7CB9E8]/30 animate-pulse p-3 rounded-lg'
+              : 'border-2 border-transparent'
+          }`}
+          >
             <Input 
               type="email" 
               placeholder="Enter your email" 
@@ -284,27 +293,17 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1C1F4A] text-[#E0E0E0] py-12">
-        <div className="container mx-auto px-4">
-          {/* <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="mb-4 md:mb-0">Follow us for transformation tips and success stories.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-[#9C27B0]"><Instagram /></a>
-              <a href="#" className="hover:text-[#9C27B0]"><Twitter /></a>
-              <a href="#" className="hover:text-[#9C27B0]"><Facebook /></a>
-            </div>
-          </div> */}
-          <div className="mt-8 text-center">
+      <footer className="bg-[#1C1F4A] text-[#E0E0E0] py-8 flex items-center">
+        <div className="container mx-auto px-4 text-center">
           <p className="flex items-center justify-center">
-              Contact Me @ 
-              <a href="mailto:adigungodwin2@gmail.com" className="text-blue-300 hover:underline ml-1">
-                  adigungodwin2@gmail.com
-              </a>
+            Contact Me @ 
+            <a href="mailto:adigungodwin2@gmail.com" className="text-blue-300 hover:underline ml-1">
+              adigungodwin2@gmail.com
+            </a>
           </p>
-
-          </div>
         </div>
       </footer>
+
     </div>
   )
 }
