@@ -211,7 +211,7 @@ export default function LandingPage() {
                 className="block cursor-pointer "
                 onClick={handleStartTransformationClick}
               >
-                <Button size="lg" className="bg-[#00C853] hover:bg-[#00A041] text-[#1C1F4A]">
+                <Button size="lg" className="bg-[#00C853] hover:bg-[#00A041] text-[#1C1F4A] font-semibold">
               Start Your Transformation Now 
               {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
             </Button>
